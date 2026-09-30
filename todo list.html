@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 20px;
+            background-color: aqua;
+            text-align: center;
+        }
+        #alert{
+            z-index: 1000;
+            display: none;
+            border: 2px solid blue;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="alert">
+        <p id="alertText"></p>
+        <button onclick="closepopup()">OK</button>
+    </div>
+    <h1>TO-DO LIST APP</h1>
+    <input id="input" type="text" placeholder="Enter Task">
+    <button id="addbtn">ADD</button>
+    <ul id="tasklist"></ul>
+
+
+    <script>
+        let input=document.getElementById("input");
+        let addbtn=document.getElementById("addbtn");
+        let tasklist=document.getElementById("tasklist");
+        let popupbox=document.getElementById("alert");
+        let popuptext=document.getElementById("alertText");
+        function popup(text){
+            popupbox.style.display="block"
+            popuptext.innerText=text;
+        }
+        function closepopup(){
+            popupbox.style.display="none";
+        }
+        popup("Please Read. Hello,this is my latest project. This is an easy to use to-do app. You enter the required entry in the input box, and click on add. Your entry should appear in the list. There are two buttons, done and del. The done button indicates the activity has been done, while the del button deletes the entry. The entry's time of creation is also included. Press OK to close this message.");
+        
+
+            
+
+        addbtn.onclick=function(){
+            let task=input.value;
+            if(task.trim()===""){
+               return; 
+            }else{ 
+                let now=new Date();               
+                let newtask=document.createElement("li");
+                let deletebtn=document.createElement("button");
+                let donebtn=document.createElement("button");
+                let time=now.toLocaleTimeString();
+                let timetext=document.createElement("small");
+
+                donebtn.textContent="DONE";
+                deletebtn.textContent="DEL";
+                newtask.textContent=task;
+                timetext.textContent="Created: "+time
+                deletebtn.onclick=function(){
+                    deletebtn.parentElement.remove();
+                }
+                donebtn.onclick=function(){
+                    donebtn.style.backgroundColor="green";
+                }
+                newtask.appendChild(timetext);
+                newtask.appendChild(donebtn);
+                newtask.appendChild(deletebtn);
+               
+                tasklist.appendChild(newtask);
+                
+
+                input.value="";
+            }
+        }
+    </script>
+</body>
+</html>
