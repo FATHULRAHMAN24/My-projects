@@ -1,0 +1,20 @@
+canvas{
+    background-image:url(Neon\ \(1\).jpg); 
+    background-position: center;                                       
+    overflow: hidden;
+}
+button{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: transparent;
+    top: 250px;
+    position: absolute;
+    margin: 20px;
+}
+#rightbtn{
+    left: 90px;
+}
+#jumpbtn{
+    left: 630px;
+}

@@ -1,0 +1,28 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+#canvas {
+    width: 600px;
+    height: 350px;
+    background-color: blue;
+    text-align: center;
+}
+#starthead {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 170px;
+    border: solid 5px;
+    padding: 5px;
+    background-color: green;
+}
+#startBtn {
+    width: 200px;
+    text-align: center;
+    height: 100px;
+    position: absolute;
+    top: 250px;
+    left: 190px;
+    background-color: green;
+}
